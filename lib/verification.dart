@@ -19,8 +19,6 @@ class Verification extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.topCenter,
-                  margin: const EdgeInsets.all(0),
-                  padding: const EdgeInsets.all(0),
                   width: MediaQuery.of(context).size.width,
                   height: 150,
                   decoration: const BoxDecoration(

@@ -1,5 +1,5 @@
-import 'package:chortkeh/login.dart';
-import 'package:chortkeh/register.dart';
+import 'package:chortkeh/LoginPage/loginPage.dart';
+import 'package:chortkeh/LoginPage/signupPage.dart';
 import 'package:flutter/material.dart';
 
 class Wellcome extends StatelessWidget {
@@ -56,7 +56,7 @@ class Wellcome extends StatelessWidget {
               children: [
                 MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, Login.id);
+                    Navigator.pushNamed(context, LoginPage.id);
                   },
                   color: const Color(0xffffffff),
                   shape: RoundedRectangleBorder(
@@ -79,7 +79,7 @@ class Wellcome extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, Register.id);
+                      Navigator.pushNamed(context, SignupPage.id);
                     },
                     color: const Color(0xffffd261),
                     elevation: 0,

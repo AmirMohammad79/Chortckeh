@@ -1,11 +1,13 @@
-import 'package:chortkeh/home.dart';
+import 'package:chortkeh/profile.dart';
 import 'package:flutter/material.dart';
-class SignupButton extends StatelessWidget {
+
+class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 50,
-        width: 100,
+      height: 50,
+      width: 100,
+      child: Center(
         child: Ink(
           decoration: BoxDecoration(
             gradient: const LinearGradient(
@@ -18,11 +20,11 @@ class SignupButton extends StatelessWidget {
           ),
           child: InkWell(
             onTap: () {
-              Navigator.pushNamed(context, Home.id);
+              Navigator.pushNamed(context, Profile.id);
             },
             child: const Center(
               child: Text(
-                'ثبت نام',
+                'ورود',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -31,6 +33,7 @@ class SignupButton extends StatelessWidget {
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 }

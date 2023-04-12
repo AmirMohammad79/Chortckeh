@@ -6,7 +6,7 @@ import 'package:chortkeh/home.dart';
 import 'package:chortkeh/profile.dart';
 import 'package:chortkeh/splash_screen.dart';
 import 'package:chortkeh/verification.dart';
-import 'package:chortkeh/wellcome.dart';
+
 import 'package:flutter/material.dart';
 
 
@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
         Forgetpassword.id: (context) => Forgetpassword(),
         SignupPage.id: (context) => SignupPage(),
         Profile.id : (context) => Profile(),
-        Wellcome.id : (context) => Wellcome(),
         Verification.id : (context) => Verification(),
       },
     );

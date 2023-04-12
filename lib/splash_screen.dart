@@ -1,5 +1,8 @@
-import 'package:chortkeh/wellcome.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:chortkeh/LoginPage/loginPage.dart';
 import 'package:flutter/material.dart';
+
+import 'constant/constant.dart';
 
 class SplashScreen extends StatefulWidget {
   static String id = 'splash';
@@ -11,8 +14,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () async {
-      Navigator.pushNamed(context, Wellcome.id);
+    Future.delayed(const Duration(seconds: 5), () async {
+      Navigator.pushNamed(context, LoginPage.id);
     });
     super.initState();
   }
@@ -20,39 +23,37 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          color: const Color(0xff3a57e8),
+          color: Colors.white,
           shape: BoxShape.rectangle,
           borderRadius: BorderRadius.zero,
           border: Border.all(color: const Color(0x4d9e9e9e), width: 1),
         ),
-        child: Stack(
-          alignment: Alignment.center,
-          children:  [
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  <Widget>[
             Image.asset(
               'assets/images/logo.png',
               height: 150,
               width: 150,
               fit: BoxFit.cover,
             ),
-            const Align(
-              alignment: Alignment(0.0, 1.0),
-              child: Text(
-                "CHORTKEH",
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.clip,
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 22,
-                  color: Color(0xffffffff),
-                ),
-              ),
+        SizedBox(
+          width: 250.0,
+          child: TextLiquidFill(
+            text: 'چرتکه',
+            waveColor: kPrimeryColor,
+            boxBackgroundColor: Colors.white,
+            textStyle: const TextStyle(
+              fontSize: 80.0,
+              fontWeight: FontWeight.bold,
             ),
+            boxHeight: 200.0,
+          ),
+        ),
           ],
         ),
       ),

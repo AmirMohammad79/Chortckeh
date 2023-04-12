@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:chortkeh/constant/constant.dart';
 import './passwordField.dart';
 
 class VerificationFields extends StatelessWidget {
@@ -12,7 +12,7 @@ class VerificationFields extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           boxShadow: const [
             BoxShadow(
-              color: Color.fromRGBO(143, 148, 251, .2),
+              color: Color.fromRGBO(104, 109, 250, 0.4666666666666667),
               blurRadius: 20.0,
               offset: Offset(0, 10),
             )
@@ -29,19 +29,22 @@ class VerificationFields extends StatelessWidget {
                   ),
                 ),
               ),
-              child: TextField(
-                cursorColor: Colors.purpleAccent,
-                style: const TextStyle(color: Color.fromRGBO(143, 148, 251, 1)),
+              child: TextFormField(
+                textAlign: TextAlign.right,
+                cursorColor: kPrimeryColor,
+                style: const TextStyle(color: kPrimeryColor),
                 decoration: InputDecoration(
+                  suffixIcon: const Icon(Icons.phone_enabled_rounded,
+                  color: Color.fromRGBO(104, 109, 250, 0.4666666666666667),),
                   border: InputBorder.none,
-                  hintText: "Email or Phone number",
-                  hintStyle: TextStyle(color: Colors.grey[400]),
+                  hintText: 'شماره تلفن',
+                  hintStyle: TextStyle(color: Colors.grey[400] ),
                 ),
               ),
             ),
             Container(
               padding: const EdgeInsets.all(8.0),
-              child: PasswordField(),
+              child: PasswordField(passwordFildeName: 'رمز عبور',),
             )
           ],
         ),

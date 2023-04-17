@@ -1,5 +1,11 @@
+// ignore_for_file: file_names, unused_local_variable
+
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../constant/constant.dart';
+import '../screens/home.dart';
+import '../providers/AuthProvider.dart';
+import '../screens/otp.dart';
 import './verificationFields.dart';
 import './login_Button.dart';
 import './signupPage.dart';
@@ -12,6 +18,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  VerificationFields verificationFields = VerificationFields();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+   String errorMessage = '';
   bool _pageLogin = true;
   // bool _rememberPassword = false;
 
@@ -31,107 +40,145 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             LoginDecoration(),
               const SizedBox(height: 20.0,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  TextButton(
-                    style: TextButton.styleFrom(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: SizedBox(
+                        height: 60,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            side: const BorderSide(
+                            color: kPrimaryColor,
+                          ),
+                            backgroundColor:  _pageLogin
+                                ?kPrimaryColor
+                                : Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            foregroundColor: _pageLogin
+                                ? Colors.white
+                                : kPrimaryColor,
+                          ),
 
-                      //
-                      backgroundColor:  _pageLogin
-                          ?kPrimeryColor
-                          : const Color.fromRGBO(
-                          143, 148, 251, 0.45098039215686275),
-                      shadowColor: Colors.transparent,
-                      foregroundColor: _pageLogin
-                          ? Colors.white
-                          : kPrimeryColor,
-                    ),
-
-                    child: const Text(
-                      'ورود',
-                      style: TextStyle(
-                        color: Colors.white
+                          child:  Text(
+                            'ورود',
+                            style: TextStyle(
+                              fontFamily: kPrimaryFont,
+                              fontSize: 20,
+                              color:  _pageLogin
+                                  ?Colors.white: kPrimaryColor,
+                            ),
+                          ),
+                          onPressed: () {
+                            _togglePage(true);
+                          },
+                        ),
                       ),
                     ),
-                    onPressed: () {
-                      _togglePage(true);
-                    },
-                  ),
-                  const SizedBox(width: 15.0),
-                  TextButton(
-                    style: TextButton.styleFrom(
-
-                      //
-                      backgroundColor:  _pageLogin
-                          ?  const Color.fromRGBO(143, 148, 251, 0.45098039215686275)
-                          :kPrimeryColor,
-                      shadowColor: Colors.transparent,
-                      foregroundColor: _pageLogin
-                          ? Colors.white
-                          : kPrimeryColor,
-                    ),
-                    child: const Text(
-                      'ثبت نام',
-                      style: TextStyle(
-                        color: Colors.white,
+                    const SizedBox(width: 5.0,),
+                    Expanded(
+                      child: SizedBox(
+                        height: 60,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            side: const BorderSide(
+                              color: kPrimaryColor,
+                            ),
+                            backgroundColor:  _pageLogin
+                                ?  Colors.white
+                                :kPrimaryColor,
+                            shadowColor: Colors.transparent,
+                            foregroundColor: _pageLogin
+                                ? Colors.white
+                                : kPrimaryColor,
+                          ),
+                          child:  Text(
+                            'ثبت نام',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: kPrimaryFont,
+                              color:    _pageLogin
+                                ?kPrimaryColor: Colors.white,
+                            ),
+                          ),
+                          onPressed: () {
+                            _togglePage(false);
+                          },
+                        ),
                       ),
                     ),
-                    onPressed: () {
-                      _togglePage(false);
-                    },
-                  ),
-                ],
+                  ],
+                ),
               ),
             _pageLogin
                 ? Padding(
                     padding: const EdgeInsets.all(30.0),
-                    child: Column(
-                      children: <Widget>[
-                        VerificationFields(),
-                        /* Remember Password */
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.end,
-                        //   children: <Widget>[
-                        //     Text("Remember Password?"),
-                        //     Checkbox(
-                        //       value: _rememberPassword ? true : false,
-                        //       onChanged: (bool _newValue) {
-                        //         setState(() {
-                        //             _rememberPassword = _newValue;
-                        //           },
-                        //         );
-                        //       },
-                        //     ),
-                        //   ],
-                        // ),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        children: <Widget>[
+                          VerificationFields(),
+                          const SizedBox(
+                            height: 8,
+                          ),
                           Container(
                             alignment: const AlignmentDirectional(1.0, 0.0),
                             child: TextButton(
                               style: TextButton.styleFrom(
-
                                 backgroundColor: Colors.transparent,
                                 shadowColor: Colors.transparent,
                               ),
-                              child: const Text(
-                              'فراموشی رمز عبور ؟',
+                              child: Text(
+                                '): رمز عبورم را فراموش کرده ام',
                                 style: TextStyle(
                                   fontSize: 18.00,
+                                  fontFamily: kSecondaryFont,
                                   fontWeight: FontWeight.w500,
-                                  color: kPrimeryColor,
+                                  color: kHintTextColor,
                                 ),
                               ),
-                              onPressed: () => {},
+                              onPressed: () => {
+                                Navigator.pushNamed(context, Otp.id)
+                              },
                             ),
                           ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        LoginButton(),
-                      ],
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          LoginButton(
+                            subMit: () async {
+                              final form = _formKey.currentState;
+                              if (!form!.validate()) {
+                                return;
+                              }
+                              final AuthProvider provider =
+                              Provider.of<AuthProvider>(context, listen: false);
+                              try {
+                                var token = await provider.login(
+                                    verificationFields.mobileController.text, verificationFields.passwordController.text);
+                                Navigator.pushNamed(context, Home.id);
+                              } catch (e) {
+                                setState(() {
+                                  errorMessage = e.toString().replaceAll('Exception : ', '');
+                                });
+                              }
+                            },
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Text(
+                            errorMessage,
+                            style: const TextStyle(color: Colors.red),
+                          )
+                        ],
+                      ),
                     ),
                   )
                 : SignupPage()
+
           ],
         ),
       ),

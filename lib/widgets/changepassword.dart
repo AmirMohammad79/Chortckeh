@@ -62,7 +62,7 @@ class Changepassword extends StatelessWidget {
                         ),
                       ),
                       const Text(
-                        "Create your new password in FlutterViz, Keep in mind and remeber it!.",
+                        "Create your new password Keep in mind and remeber it!.",
                         textAlign: TextAlign.start,
                         overflow: TextOverflow.clip,
                         style: TextStyle(

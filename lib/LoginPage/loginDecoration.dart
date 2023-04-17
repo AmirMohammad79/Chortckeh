@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class LoginDecoration extends StatelessWidget {
@@ -11,15 +13,16 @@ class LoginDecoration extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.only(top: 50),
               child:  Center(
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  height: 150,
-                  width: 150,
-                  fit: BoxFit.cover,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100.0),
+                  child: Image.asset(
+                    'assets/images/logo-dark.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );

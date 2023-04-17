@@ -1,7 +1,13 @@
+// ignore_for_file: file_names, library_private_types_in_public_api, use_build_context_synchronously
+
+import 'package:chortkeh/LoginPage/PhoneNumberFild.dart';
+import 'package:chortkeh/screens/profile.dart';
+import 'package:chortkeh/providers/AuthProvider.dart';
+import 'package:chortkeh/screens/otp.dart';
+import 'package:provider/provider.dart';
 import '../constant/constant.dart';
 import 'passwordField.dart';
 import 'package:flutter/material.dart';
-import 'signupButton.dart';
 
 class SignupPage extends StatefulWidget {
   static String id = 'register';
@@ -10,6 +16,13 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
+  final mobileController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordConfirmationController = TextEditingController();
+  String errorMessage = '';
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,16 +32,12 @@ class _SignupPageState extends State<SignupPage> {
           Container(
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
-
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color.fromRGBO(104, 109, 250, 0.4666666666666667),
-                  blurRadius: 20.0,
-                  offset: Offset(0, 10),
-                )
-              ],
+              border: Border.all(
+                width: 1,
+                color: kPrimaryColor
+              )
             ),
             child: Column(
               children: <Widget>[
@@ -41,43 +50,123 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ),
                   ),
-                  child: Column(
-                    children: <Widget>[
-                      TextFormField(
-                        textAlign: TextAlign.right,
-                        cursorColor: Colors.purpleAccent,
-                        style: const TextStyle(
-                            color: kPrimeryColor),
-                        decoration: InputDecoration(
-                          suffixIcon: const Icon(
-                            Icons.person,
-                            color: kPrimeryColor,
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.grey.shade100,
+                              ),
+                            ),
                           ),
-                          border: InputBorder.none,
-                          hintText: 'نام و نام خانوادگی',
-                          hintStyle: TextStyle(color: Colors.grey[400]),
-                        ),
-                      ),
-                      TextFormField(
-                        textAlign: TextAlign.right,
-                        keyboardType: TextInputType.phone,
-                        cursorColor: Colors.purpleAccent,
-                        style: const TextStyle(
-                            color: kPrimeryColor),
-                        decoration: InputDecoration(
-                          suffixIcon: const Icon(
-                            Icons.phone_enabled_rounded,
-                            color: Color.fromRGBO(
-                                104, 109, 250, 0.4666666666666667),
+                          child: TextFormField(
+                            controller: firstNameController,
+                            validator: (String? value) {
+                              if (value!.isEmpty) {
+                                return 'لطفا نام خود را وارد کنید';
+                              }
+                              return null;
+                            },
+                            onChanged: (text) =>
+                                setState(() => errorMessage = ''),
+                            textAlign: TextAlign.right,
+                            cursorColor: kSecondaryColor,
+                            style: kPrimaryTextStyle,
+                            decoration: InputDecoration(
+                              suffixIcon: const Icon(
+                                Icons.person,
+                                color: kPrimaryColor,
+                                size: kIconSize,
+                              ),
+                              border: InputBorder.none,
+                              hintText: 'نام',
+                              hintStyle: TextStyle(color: kHintTextColor),
+                            ),
                           ),
-                          border: InputBorder.none,
-                          hintText: 'شماره تلفن',
-                          hintStyle: TextStyle(color: Colors.grey[400]),
                         ),
-                      ),
-                      PasswordField(passwordFildeName: 'رمز عبور',),
-                      PasswordField(passwordFildeName:'تکرار رمز عبور',),
-                    ],
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.grey.shade100,
+                              ),
+                            ),
+                          ),
+                          child: TextFormField(
+                            controller: lastNameController,
+                            validator: (String? value) {
+                              if (value!.isEmpty) {
+                                return 'لطفا نام خانوادگی خود را وارد کنید';
+                              }
+                              return null;
+                            },
+                            onChanged: (text) =>
+                                setState(() => errorMessage = ''),
+                            textAlign: TextAlign.right,
+                            cursorColor: kSecondaryColor,
+                            style: kPrimaryTextStyle,
+                            decoration: InputDecoration(
+                              suffixIcon: const Icon(
+                                Icons.person,
+                                color: kPrimaryColor,
+                                size: kIconSize,
+                              ),
+                              border: InputBorder.none,
+                              hintText: 'نام خانوادگی',
+                              hintStyle: TextStyle(color: kHintTextColor),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.grey.shade100,
+                              ),
+                            ),
+                          ),
+                          child: Phone_Number_Field(
+                              errorMessage: errorMessage,
+                              controller: mobileController),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.grey.shade100,
+                              ),
+                            ),
+                          ),
+                          child: PasswordField(
+                            passwordFildeName: 'رمز عبور',
+                            errorMessage: errorMessage,
+                            controller: passwordController,
+                          ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Colors.grey.shade100,
+                              ),
+                            ),
+                          ),
+                          child: PasswordField(
+                            passwordFildeName: 'تکرار رمز عبور',
+                            errorMessage: errorMessage,
+                            controller: passwordConfirmationController,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -86,9 +175,67 @@ class _SignupPageState extends State<SignupPage> {
           const SizedBox(
             height: 30,
           ),
-          SignupButton(),
+          SizedBox(
+            height: 60,
+            width: double.infinity,
+            child: Center(
+              child: Ink(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      kPrimaryColor,
+                      kSecondaryColor,
+                      kBlueColor
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: InkWell(
+                  onTap: () {
+                   Navigator.pushNamed(context,Otp.id) ;
+                    // submit();
+                  },
+                  child: const Center(
+                    child: Text(
+                      'ثبت نام',
+                      style: TextStyle(
+                        fontFamily: kPrimaryFont,
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              errorMessage,
+              style: const TextStyle(color: Colors.red),
+            ),
+          )
         ],
       ),
     );
+  }
+
+  Future<void> submit() async {
+    final form = formKey.currentState;
+    if (!form!.validate()) {
+      return;
+    }
+    final AuthProvider provider =
+        Provider.of<AuthProvider>(context, listen: false);
+    try {
+       var token = await provider.register(firstNameController.text, lastNameController.text, mobileController.text, passwordController.text, passwordConfirmationController.text);
+      Navigator.pushNamed(context, Profile.id);
+    } catch (e) {
+      setState(() {
+        errorMessage = e.toString().replaceAll('Exception : ', '');
+      });
+    }
   }
 }

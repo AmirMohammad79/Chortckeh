@@ -16,6 +16,9 @@ dependencies:
   flutter_otp_text_field: ^1.1.0+2
   simple_animations: ^5.0.0+3
   animated_text_kit: ^4.2.2
+  http: ^0.13.5
+  provider: ^6.0.5
+  fluentui_system_icons: ^1.1.153
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +30,24 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-
+  fonts:
+    - family: Radin3
+      fonts:
+        - asset: fonts/Radin3.ttf
+    - family: Kalameh
+      fonts:
+        - asset: fonts/Kalameh-SemiBold.ttf
+  #  fonts:
+  #    - family: Radin3
+  #      fonts:
+  #        - asset: fonts/Radin3.ttf
+  #    - family: kalame
+  #        fonts:
+  #            - asset: fonts/Radin3.ttf
+  #    fonts:
+  #      - asset: fonts/Kalameh-SemiBold.ttf
+  #    - family: Molsaq
+  #      fonts:
+  #          - asset: fonts/MolsaqArabic-ExtraBold.ttf
   uses-material-design: true
 

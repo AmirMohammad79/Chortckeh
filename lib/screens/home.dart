@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'cards/add_card_screen.dart';
+
 class Home extends StatelessWidget {
   static String id = 'home';
   @override
@@ -78,7 +80,9 @@ class Home extends StatelessWidget {
                   children: [
                     IconButton(
                       icon: const Icon(Icons.add),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, AddNewCardScreen.id);
+                      },
                       color: const Color(0xff212435),
                       iconSize: 24,
                     ),

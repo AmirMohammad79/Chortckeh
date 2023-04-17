@@ -1,10 +1,14 @@
+// ignore_for_file: use_key_in_widget_constructors, must_be_immutable, library_private_types_in_public_api, file_names
+
 import 'package:flutter/material.dart';
 
 import '../constant/constant.dart';
 
 class PasswordField extends StatefulWidget {
   String passwordFildeName;
-   PasswordField({required this.passwordFildeName});
+  dynamic controller;
+  String errorMessage;
+   PasswordField({required this.passwordFildeName , required this.errorMessage, this.controller});
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
@@ -24,20 +28,31 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      cursorColor: kPrimeryColor,
+      controller:widget.controller ,
+      validator: (String? value){
+        if(value!.isEmpty){
+          return 'لطفا رمز عبور خود را وارد کنید';
+        }
+        return null ;
+      },
+      onChanged: (text)=> setState(() => widget.errorMessage = ''),
+      cursorColor: kPrimaryColor,
       textAlign: TextAlign.right,
       obscureText: _ishidden ? true : false,
-      style: const TextStyle(color: kPrimeryColor),
+      style: kPrimaryTextStyle,
       decoration: InputDecoration(
-        suffixIcon: IconButton(
-          icon: Icon(_ishidden ? Icons.visibility_off : Icons.visibility,
-          color: const Color.fromRGBO(104, 109, 250, 0.4666666666666667),),
+        prefixIcon: IconButton(
+          icon:Icon( _ishidden ? Icons.visibility_off : Icons.visibility),
+          color: kPrimaryColor.withOpacity(0.4),
           onPressed: _toggleVisibility,
         ),
+        suffixIcon:  const Icon( Icons.lock ,
+        color: kPrimaryColor,
+        size: kIconSize),
         border: InputBorder.none,
         hintText: widget.passwordFildeName,
         hintStyle: TextStyle(
-          color: Colors.grey[400],
+          color: kHintTextColor,
         ),
       ),
     );

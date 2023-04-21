@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../constant/constant.dart';
-import '../screens/home.dart';
 import '../providers/AuthProvider.dart';
+import '../screens/home2.dart';
 import '../screens/otp.dart';
 import './verificationFields.dart';
 import './login_Button.dart';
@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                               try {
                                 var token = await provider.login(
                                     verificationFields.mobileController.text, verificationFields.passwordController.text);
-                                Navigator.pushNamed(context, Home.id);
+                                Navigator.pushNamed(context, Home2.id);
                               } catch (e) {
                                 setState(() {
                                   errorMessage = e.toString().replaceAll('Exception : ', '');

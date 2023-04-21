@@ -185,7 +185,7 @@ class _SignupPageState extends State<SignupPage> {
                     colors: [
                       kPrimaryColor,
                       kSecondaryColor,
-                      kBlueColor
+                      kThirdColor
                     ],
                   ),
                   borderRadius: BorderRadius.circular(8.0),

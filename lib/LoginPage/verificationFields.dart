@@ -2,7 +2,6 @@
 
 import 'package:chortkeh/LoginPage/PhoneNumberFild.dart';
 import 'package:chortkeh/constant/constant.dart';
-import 'package:chortkeh/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/AuthProvider.dart';

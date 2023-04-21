@@ -4,7 +4,6 @@ import 'package:chortkeh/screens/cards/add_card_screen.dart';
 import 'package:chortkeh/screens/home2.dart';
 import 'package:chortkeh/widgets/changepassword.dart';
 import 'package:chortkeh/widgets/forgetpassword.dart';
-import 'package:chortkeh/screens/home.dart';
 import 'package:chortkeh/screens/profile.dart';
 import 'package:chortkeh/providers/AuthProvider.dart';
 import 'package:chortkeh/screens/splash_screen.dart';
@@ -30,11 +29,12 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           initialRoute: SplashScreen.id,
+          debugShowCheckedModeBanner: false,
           routes: {
             '/':(context){
               final authProvider = Provider.of<AuthProvider>(context);
               if(authProvider.isAuthentication){
-                return Home();
+                return Home2();
               }else{
                 return LoginPage();
               }
@@ -42,7 +42,6 @@ class MyApp extends StatelessWidget {
             Home2.id: (context)=> Home2(),
             AddNewCardScreen.id: (context)=>  AddNewCardScreen(),
             SplashScreen.id: (context) => SplashScreen(),
-            Home.id: (context) => Home(),
             LoginPage.id: (context) => LoginPage(),
             Changepassword.id: (context) => Changepassword(),
             Forgetpassword.id: (context) => Forgetpassword(),

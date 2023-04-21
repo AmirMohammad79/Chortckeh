@@ -66,7 +66,7 @@ class AddNewCardScreenState extends State<AddNewCardScreen> {
                   obscureCardNumber: true,
                   obscureCardCvv: true,
                   isHolderNameVisible: true,
-                  cardBgColor: kBlueColor,
+                  cardBgColor: kThirdColor,
                   backgroundImage:
                   useBackgroundImage ? 'assets/card_bg.png' : null,
                   isSwipeGestureEnabled: true,
@@ -153,7 +153,7 @@ class AddNewCardScreenState extends State<AddNewCardScreen> {
                                 value: useGlassMorphism,
                                 inactiveTrackColor: Colors.grey,
                                 activeColor: Colors.white,
-                                activeTrackColor: kBlueColor,
+                                activeTrackColor: kThirdColor,
                                 onChanged: (bool value) => setState(() {
                                   useGlassMorphism = value;
                                 }),
@@ -178,7 +178,7 @@ class AddNewCardScreenState extends State<AddNewCardScreen> {
                                 value: useBackgroundImage,
                                 inactiveTrackColor: Colors.grey,
                                 activeColor: Colors.white,
-                                activeTrackColor: kBlueColor,
+                                activeTrackColor: kThirdColor,
                                 onChanged: (bool value) => setState(() {
                                   useBackgroundImage = value;
                                 }),
@@ -199,7 +199,7 @@ class AddNewCardScreenState extends State<AddNewCardScreen> {
                                 colors: <Color>[
                                kPrimaryColor,
                                   kSecondaryColor,
-                                  kBlueColor
+                                  kThirdColor
                                 ],
                                 begin: Alignment(-1, -4),
                                 end: Alignment(1, 4),

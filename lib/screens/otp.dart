@@ -1,4 +1,3 @@
-import 'package:chortkeh/screens/home.dart';
 import 'package:chortkeh/screens/home2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
@@ -32,7 +31,7 @@ class Otp extends StatelessWidget {
                         colors: [
                           kPrimaryColor,
                           kSecondaryColor,
-                          kBlueColor
+                          kThirdColor
                         ],
                       ),
                       borderRadius: BorderRadius.circular(8.0),
@@ -40,12 +39,13 @@ class Otp extends StatelessWidget {
                     child: const Padding(
                       padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
                       child: Text(
-                        "Verification",
+                        "فعال سازی حساب",
                         textAlign: TextAlign.start,
                         overflow: TextOverflow.clip,
                         style: TextStyle(
                           fontWeight: FontWeight.w400,
                           fontStyle: FontStyle.normal,
+                          fontFamily: kVazirFont,
                           fontSize: 20,
                           color: Color(0xffffffff),
                         ),
@@ -69,23 +69,19 @@ class Otp extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(30),
                 child: Text(
-                  " We have send you an access code via SMS for Mobile number verifications.",
+                  "کد فعال سازی به شماره تلفن شما پیامک شد",
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.clip,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16,
-                    color: Color(0xff000000),
-                  ),
+                  style: kPrimaryTextStyle,
                 ),
               ),
               const Text(
-                "Enter Code here",
+                "کد ارسال شده را وارد نمایید",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.clip,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
+                  fontFamily: kVazirFont,
                   fontStyle: FontStyle.normal,
                   fontSize: 14,
                   color: Color(0xff545454),
@@ -128,7 +124,7 @@ class Otp extends StatelessWidget {
                     colors: [
                       kPrimaryColor,
                       kSecondaryColor,
-                      kBlueColor
+                      kThirdColor
                     ],
                   ),
                   shape: BoxShape.circle,
@@ -138,7 +134,7 @@ class Otp extends StatelessWidget {
                   color: const Color(0xffffffff),
                    onPressed: () {
                     // Navigator.pushNamed(context, Home.id);
-                    Navigator.pushNamed(context,Home.id);
+                    Navigator.pushReplacementNamed(context,Home2.id);
                    },
                 ),
               ),
@@ -153,7 +149,7 @@ class Otp extends StatelessWidget {
                     textAlign: TextAlign.start,
                     overflow: TextOverflow.clip,
                     style: TextStyle(
-                      fontFamily: 'Kalameh',
+                      fontFamily: kVazirFont,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.normal,
                       fontSize: 16,

@@ -19,7 +19,7 @@ class LoginButton extends StatelessWidget {
               colors: [
                 kPrimaryColor,
                 kSecondaryColor,
-                kBlueColor
+                kThirdColor
               ],
             ),
             borderRadius: BorderRadius.circular(8.0),

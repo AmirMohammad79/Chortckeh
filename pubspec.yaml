@@ -24,7 +24,6 @@ dependencies:
   cached_network_image: 3.2.1
   flutter_animate: 1.0.0
   flutter_cache_manager: 3.3.0
-  font_awesome_flutter: 10.1.0
   from_css_color: 2.0.0
   google_fonts: 3.0.1
   intl: 0.17.0
@@ -34,6 +33,9 @@ dependencies:
   sqflite: 2.2.0+2
   timeago: 3.2.2
   url_launcher: 6.1.5
+  fl_chart: ^0.62.0
+  font_awesome_flutter: ^10.4.0
+  circular_bottom_navigation: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -51,18 +53,34 @@ flutter:
         - asset: fonts/Radin3.ttf
     - family: Kalameh
       fonts:
-        - asset: fonts/Kalameh-SemiBold.ttf
-  #  fonts:
-  #    - family: Radin3
-  #      fonts:
-  #        - asset: fonts/Radin3.ttf
-  #    - family: kalame
-  #        fonts:
-  #            - asset: fonts/Radin3.ttf
-  #    fonts:
-  #      - asset: fonts/Kalameh-SemiBold.ttf
-  #    - family: Molsaq
-  #      fonts:
-  #          - asset: fonts/MolsaqArabic-ExtraBold.ttf
+        - asset: fonts/Kalame/Kalameh-SemiBold.ttf
+        - asset: fonts/Kalame/Kalameh-Bold.ttf
+          weight: 700
+    - family: Vazir
+      fonts:
+        - asset: fonts/Vazir/Vazir-Bold-FD-WOL.ttf
+          weight: 700
+        - asset: fonts/Vazir/Vazir-Light-FD-WOL.ttf
+          weight: 300
+        - asset: fonts/Vazir/Vazir-Medium-FD-WOL.ttf
+          weight: 500
+        - asset: fonts/Vazir/Vazir-Thin-FD-WOL.ttf
+          weight: 100
+        - asset: fonts/Vazir/Vazir-FD-WOL.ttf
+    - family: FontAwesome
+      fonts:
+        - asset: fonts/FontAwesomeIcons/fa-regular-400.ttf
+          weight: 400
+        - asset: fonts/FontAwesomeIcons/fa-brands-400.ttf
+          weight: 400
+        - asset: fonts/FontAwesomeIcons/fa-duotone-900.ttf
+          weight: 900
+        - asset: fonts/FontAwesomeIcons/fa-light-300.ttf
+          weight: 300
+        - asset: fonts/FontAwesomeIcons/fa-solid-900.ttf
+          weight: 800
+        - asset: fonts/FontAwesomeIcons/fa-thin-100.ttf
+          weight: 100
+        - asset: fonts/FontAwesomeIcons/fa-v4compatibility.ttf
   uses-material-design: true
 

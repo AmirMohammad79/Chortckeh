@@ -1,7 +1,8 @@
 import 'package:chortkeh/LoginPage/loginPage.dart';
 import 'package:chortkeh/LoginPage/signupPage.dart';
 import 'package:chortkeh/screens/cards/add_card_screen.dart';
-import 'package:chortkeh/screens/home2.dart';
+import 'package:chortkeh/screens/frindListScreen.dart';
+import 'package:chortkeh/home2.dart';
 import 'package:chortkeh/widgets/changepassword.dart';
 import 'package:chortkeh/widgets/forgetpassword.dart';
 import 'package:chortkeh/screens/profile.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
               }
             },
             Home2.id: (context)=> Home2(),
+            GroupListWidget.id : (context) => GroupListWidget(),
             AddNewCardScreen.id: (context)=>  AddNewCardScreen(),
             SplashScreen.id: (context) => SplashScreen(),
             LoginPage.id: (context) => LoginPage(),

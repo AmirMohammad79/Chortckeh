@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../constant/constant.dart';
 import '../providers/AuthProvider.dart';
-import '../screens/home2.dart';
+import '../home2.dart';
 import '../screens/otp.dart';
 import './verificationFields.dart';
 import './login_Button.dart';

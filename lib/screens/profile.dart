@@ -1,209 +1,231 @@
+import 'package:chortkeh/constant/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   static String id = 'profile';
+
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      appBar: AppBar(
-        elevation: 4,
-        centerTitle: false,
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xff3a57e8),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
-        ),
-        title: const Text(
-          "Profile",
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.normal,
-            fontSize: 20,
-            color: Color(0xffffffff),
-          ),
-        ),
-        leading: const Icon(
-          Icons.arrow_back,
-          color: Color(0xffffffff),
-          size: 24,
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Align(
-                alignment: Alignment.center,
-                child: Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    Container(
-                      height: 120,
-                      width: 120,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.network(
-                          "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg",
-                          fit: BoxFit.cover),
-                    ),
-                    Container(
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.all(0),
-                      padding: const EdgeInsets.all(0),
-                      width: 40,
-                      height: 40,
-                      decoration: const BoxDecoration(
-                        color: Color(0xff3a57e8),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.photo_camera,
-                        color: Color(0xffffffff),
-                        size: 20,
-                      ),
-                    ),
-                  ],
-                ),
+      backgroundColor: const Color(0xFFF1F4F8),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 160,
+            decoration: const BoxDecoration(
+              color: Color(0xFF37B082),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15),
+                topLeft: Radius.circular(0),
+                topRight: Radius.circular(0),
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                child: ListTile(
-                  tileColor: Color(0x00ffffff),
-                  title: Text(
-                    "Name",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14,
-                      color: Color(0xff424141),
+            ),
+            child: Padding(
+              padding: const EdgeInsetsDirectional.fromSTEB(20, 40, 20, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            'امیرمهدی صدقی',
+                            style: kPrimaryTextStyle
+                          ),
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                            child: Text(
+                              '09123456789',
+                              style: kSeconderyTextStyle
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    textAlign: TextAlign.start,
                   ),
-                  subtitle: Text(
-                    "Sonu",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16,
-                      color: Color(0xff000000),
+                  Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    color: Colors.white,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    textAlign: TextAlign.start,
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.asset(
+                          'assets/images/alex-suprun-ZHvM3XIOHoE-unsplash.jpg',
+                          width: 80,
+                          height: 80,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
                   ),
-                  dense: true,
-                  contentPadding: EdgeInsets.all(0),
-                  selected: false,
-                  selectedTileColor: Color(0x42000000),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Material(
+                  color: Colors.transparent,
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero,
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  leading:
-                      Icon(Icons.person, color: Color(0xff3a57e8), size: 24),
-                  trailing:
-                      Icon(Icons.edit, color: Color(0xff79797c), size: 22),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
-                child: Text(
-                  "This is not your username or pin. This name will be visible to your WhatsApp contacts.",
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.clip,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 12,
-                    color: Color(0xff000000),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 4, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            hoverColor: Colors.transparent,
+                            iconSize: 46,
+                            icon: const FaIcon(
+                              FontAwesomeIcons.chevronLeft,
+                              color: Color(0xFF95A1AC),
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                            child: Text(
+                              'ویرایش پروفایل',
+                              style:kPrimaryTextStyle
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              const Divider(
-                color: Color(0xffdddddd),
-                height: 30,
-                thickness: 0,
-                indent: 50,
-                endIndent: 0,
-              ),
-              const ListTile(
-                tileColor: Color(0x00ffffff),
-                title: Text(
-                  "About",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color(0xff000000),
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-                subtitle: Text(
-                  "-----",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16,
-                    color: Color(0xff000000),
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-                dense: true,
-                contentPadding: EdgeInsets.all(0),
-                selected: false,
-                selectedTileColor: Color(0x42000000),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
-                ),
-                leading: Icon(Icons.info_outline,
-                    color: Color(0xff3a57e8), size: 24),
-                trailing: Icon(Icons.edit, color: Color(0xff79797c), size: 22),
-              ),
-              const Divider(
-                color: Color(0xffdddddd),
-                height: 20,
-                thickness: 0,
-                indent: 50,
-                endIndent: 0,
-              ),
-              const ListTile(
-                tileColor: Color(0x00ffffff),
-                title: Text(
-                  "Phone",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 14,
-                    color: Color(0xff000000),
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-                subtitle: Text(
-                  "+91 1234056789",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 16,
-                    color: Color(0xff000000),
-                  ),
-                  textAlign: TextAlign.start,
-                ),
-                dense: true,
-                contentPadding: EdgeInsets.all(0),
-                selected: false,
-                selectedTileColor: Color(0x42000000),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero,
-                ),
-                leading: Icon(Icons.call, color: Color(0xff3a57e8), size: 24),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Material(
+                  color: Colors.transparent,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 0, 4, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            hoverColor: Colors.transparent,
+                            iconSize: 46,
+                            icon: const FaIcon(
+                              FontAwesomeIcons.chevronLeft,
+                              color: Color(0xFF95A1AC),
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                            child: Text(
+                              'تغییر رمز عبور',
+                              style: kPrimaryTextStyle
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(20, 24, 20, 40),
+            child: ElevatedButton(
+              child: const Text('خروج'),
+              onPressed: () {
+                print('Button pressed ...');
+              },
+              style: ElevatedButton.styleFrom(
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(15),
+               ) ,
+                backgroundColor: Colors.white54,
+                elevation: 3,
+              ),
+              // text: 'خروج',
+              // options: FFButtonOptions(
+              //   width: double.infinity,
+              //   height: 50,
+              //   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              //   iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+              //   color: Colors.white,
+              //   elevation: 3,
+              //   borderSide: BorderSide(
+              //     color: Colors.white,
+              //     width: 1,
+              //   ),
+              //   borderRadius: BorderRadius.circular(10),
+              // ), child: Text('خروج'),
+            ),
+          ),
+        ],
       ),
     );
   }

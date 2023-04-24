@@ -1,7 +1,7 @@
 import 'package:chortkeh/LoginPage/loginPage.dart';
 import 'package:chortkeh/LoginPage/signupPage.dart';
 import 'package:chortkeh/screens/cards/add_card_screen.dart';
-import 'package:chortkeh/screens/frindListScreen.dart';
+import 'package:chortkeh/screens/groupListScreen.dart';
 import 'package:chortkeh/home2.dart';
 import 'package:chortkeh/widgets/changepassword.dart';
 import 'package:chortkeh/widgets/forgetpassword.dart';

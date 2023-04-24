@@ -1,7 +1,8 @@
+import 'package:chortkeh/screens/friendListScreen.dart';
 import 'package:chortkeh/screens/mainHome.dart';
 import 'package:chortkeh/screens/profile.dart';
 import 'package:flutter/material.dart';
-import 'screens/frindListScreen.dart';
+import 'screens/groupListScreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:chortkeh/constant/constant.dart';
 class Home2 extends StatefulWidget {
@@ -15,7 +16,7 @@ class _Home2State extends State<Home2> {
   final List<Widget> _screens = [
     MainHome(),
     Profile(),
-    GroupListWidget(),
+    FriendListWidget(),
     GroupListWidget(),
   ];
 

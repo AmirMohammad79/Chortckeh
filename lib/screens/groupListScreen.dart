@@ -108,6 +108,7 @@ class _GroupListWidgetState extends State<GroupListWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -119,7 +120,7 @@ class _GroupListWidgetState extends State<GroupListWidget> {
                         padding: EdgeInsets.all(8.0),
                         child: Text('گروه های من', style: kCardTitleTextStyle),
                       ),
-                      FaIcon(FontAwesomeIcons.usersRectangle ,
+                      FaIcon(FontAwesomeIcons.users ,
                       color: kTextLogoColor,),
                     ],
                   ),

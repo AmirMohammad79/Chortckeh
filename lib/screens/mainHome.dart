@@ -1,6 +1,8 @@
 import 'package:chortkeh/constant/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'cards/add_card_screen.dart';
 class MainHome extends StatefulWidget {
 static String id = 'mainHome';
   @override
@@ -523,7 +525,7 @@ class _MainHomeState extends State<MainHome> {
                                       size: 30,
                                     ),
                                     onPressed: () {
-                                      print('IconButton pressed ...');
+                                      Navigator.pushNamed(context, AddNewCardScreen.id);
                                     },
                                   ),
                                 ),

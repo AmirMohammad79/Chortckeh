@@ -42,7 +42,7 @@ class AddNewCardScreenState extends State<AddNewCardScreen> {
               image: ExactAssetImage('assets/bg.png'),
               fit: BoxFit.fill,
             ),
-            color: Colors.black,
+            color: kThirdColor
           ),
           child: SafeArea(
             child: Column(
@@ -66,7 +66,7 @@ class AddNewCardScreenState extends State<AddNewCardScreen> {
                   obscureCardNumber: true,
                   obscureCardCvv: true,
                   isHolderNameVisible: true,
-                  cardBgColor: kThirdColor,
+                  cardBgColor: kPrimaryColor,
                   backgroundImage:
                   useBackgroundImage ? 'assets/card_bg.png' : null,
                   isSwipeGestureEnabled: true,

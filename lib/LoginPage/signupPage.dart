@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, library_private_types_in_public_api, use_build_context_synchronously
 
 import 'package:chortkeh/LoginPage/PhoneNumberFild.dart';
-import 'package:chortkeh/screens/profile.dart';
+import 'package:chortkeh/screens/Profile/profile.dart';
 import 'package:chortkeh/providers/AuthProvider.dart';
 import 'package:chortkeh/screens/otp.dart';
 import 'package:provider/provider.dart';

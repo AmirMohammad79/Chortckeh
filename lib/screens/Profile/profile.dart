@@ -1,6 +1,9 @@
 import 'package:chortkeh/constant/constant.dart';
+import 'package:chortkeh/screens/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'editProfile.dart';
 
 class Profile extends StatefulWidget {
   static String id = 'profile';
@@ -21,7 +24,7 @@ class _ProfileState extends State<Profile> {
             width: MediaQuery.of(context).size.width,
             height: 160,
             decoration: const BoxDecoration(
-              color: Color(0xFF37B082),
+              color: kSecondaryColor,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(15),
                 bottomRight: Radius.circular(15),
@@ -43,12 +46,12 @@ class _ProfileState extends State<Profile> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          const Text(
+                        children: const [
+                          Text(
                             'امیرمهدی صدقی',
                             style: kPrimaryTextStyle
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                             child: Text(
                               '09123456789',
@@ -121,7 +124,10 @@ class _ProfileState extends State<Profile> {
                               size: 20,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) => EditProfile(),
+                              );
                             },
                           ),
                           const Padding(
@@ -177,7 +183,10 @@ class _ProfileState extends State<Profile> {
                               size: 20,
                             ),
                             onPressed: () {
-                              print('IconButton pressed ...');
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) => EditProfile(),
+                              );
                             },
                           ),
                           const Padding(
@@ -197,32 +206,23 @@ class _ProfileState extends State<Profile> {
           ),
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(20, 24, 20, 40),
-            child: ElevatedButton(
-              child: const Text('خروج'),
-              onPressed: () {
-                print('Button pressed ...');
-              },
-              style: ElevatedButton.styleFrom(
-               shape: RoundedRectangleBorder(
-                 borderRadius: BorderRadius.circular(15),
-               ) ,
-                backgroundColor: Colors.white54,
-                elevation: 3,
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 50,
+              child: ElevatedButton(
+                child: const Text('خروج',
+                style: kPrimaryTextStyle,),
+                onPressed: () {
+                  print('Button pressed ...');
+                },
+                style: ElevatedButton.styleFrom(
+                 shape: RoundedRectangleBorder(
+                   borderRadius: BorderRadius.circular(15),
+                 ) ,
+                  backgroundColor: kSecondaryColor,
+                  elevation: 3,
+                ),
               ),
-              // text: 'خروج',
-              // options: FFButtonOptions(
-              //   width: double.infinity,
-              //   height: 50,
-              //   padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-              //   iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-              //   color: Colors.white,
-              //   elevation: 3,
-              //   borderSide: BorderSide(
-              //     color: Colors.white,
-              //     width: 1,
-              //   ),
-              //   borderRadius: BorderRadius.circular(10),
-              // ), child: Text('خروج'),
             ),
           ),
         ],

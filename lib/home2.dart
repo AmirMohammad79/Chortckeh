@@ -1,8 +1,9 @@
-import 'package:chortkeh/screens/friendListScreen.dart';
+import 'package:chortkeh/screens/dongHa/dong.dart';
+import 'package:chortkeh/screens/freind_and_gruop/friendListScreen.dart';
 import 'package:chortkeh/screens/mainHome.dart';
-import 'package:chortkeh/screens/profile.dart';
+import 'package:chortkeh/screens/Profile/profile.dart';
 import 'package:flutter/material.dart';
-import 'screens/groupListScreen.dart';
+import 'screens/freind_and_gruop/groupListScreen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:chortkeh/constant/constant.dart';
 class Home2 extends StatefulWidget {
@@ -16,6 +17,7 @@ class _Home2State extends State<Home2> {
   final List<Widget> _screens = [
     MainHome(),
     Profile(),
+    DongScreen(),
     FriendListWidget(),
     GroupListWidget(),
   ];
@@ -62,6 +64,10 @@ class _Home2State extends State<Home2> {
               BottomNavigationBarItem(
                 icon: FaIcon(FontAwesomeIcons.solidUser),
                 label: 'پروفایل من',
+              ),
+              BottomNavigationBarItem(
+                icon: FaIcon(FontAwesomeIcons.circlePlus),
+                label: 'دنگ دونی',
               ),
               BottomNavigationBarItem(
                 icon: FaIcon(FontAwesomeIcons.userGroup),

@@ -103,10 +103,10 @@ class _GroupListWidgetState extends State<GroupListWidget> {
         child: Container(
           width: double.infinity,
           height: double.infinity,
-          decoration: const BoxDecoration(color: kPrimaryColor),
+          decoration: const BoxDecoration(color: kSecondaryColor),
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
 
               Column(
@@ -127,9 +127,9 @@ class _GroupListWidgetState extends State<GroupListWidget> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Expanded(
-                      child: Container(
+                      child: SizedBox(
                         width: MediaQuery.of(context).size.width ,
-                        height: 610,
+                        height: MediaQuery.of(context).size.height * 0.68,
                         child: ListView(
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
@@ -153,29 +153,29 @@ class _GroupListWidgetState extends State<GroupListWidget> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Expanded(
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 50,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            backgroundColor: Colors.white54,
-                          ),
-                          onPressed: () {
-                            print('Button pressed ...');
-                          },
-                          child: const Text('اضافه کردن گروه جدید',
-                              style: kPrimaryTextStyle),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Expanded(
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
                         ),
+                        backgroundColor: Colors.white70,
                       ),
+                      onPressed: () {
+                        print('Button pressed ...');
+                      },
+                      child: const Text('اضافه کردن گروه جدید',
+                          style: kPrimaryTextStyle),
                     ),
                   ),
-                ],
+                ),
               ),
             ],
           ),
